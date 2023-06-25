@@ -1,4 +1,7 @@
 from django.shortcuts import render, HttpResponse
+from django.http import JsonResponse
+import random
+
 
 # Create your views here.
 def home(request):
@@ -6,3 +9,8 @@ def home(request):
 
 def passgen(request):
     char = list('abcdefghijklmnopqrstuvwyz')
+    password = ""
+    for x in range(15):
+        password += random.choice(char)
+    pas = {'password':password}
+    return JsonResponse(pas)
