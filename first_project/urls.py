@@ -21,7 +21,7 @@ from passgen import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',views.home),
-    path('password/', views.passgen),
+    path('',views.home, name="home"),
+    path('password/', views.passgen, name="passgen"),
 
 ]
