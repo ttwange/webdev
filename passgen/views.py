@@ -5,12 +5,13 @@ import random
 
 # Create your views here.
 def home(request):
-    return HttpResponse('<h1>Hellos there its me!!</h1> <br> <h2>Thone</h2>')
+    return render(request, 'home.html')
 
 def passgen(request):
-    char = list('abcdefghijklmnopqrstuvwyz')
+    char = list('abcdefghijklmnopqrstuvwyz!@#$%^&*()+')
+    nums = list('123456789')
     password = ""
     for x in range(15):
         password += random.choice(char)
-    pas = {'password':password}
-    return JsonResponse(pas)
+        password += random.choice(nums)
+    return render(request, 'password.html', {'password': password})
