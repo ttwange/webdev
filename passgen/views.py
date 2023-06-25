@@ -8,18 +8,16 @@ def home(request):
     return render(request, 'home.html')
 
 def passgen(request):
-    char = list('abcdefghijklmnopqrstuvwyz!@#$%^&*()+')
+    char = list('abcdefghijklmnopqrstuvwyz')
     if request.GET.get('uppercase'):
         char.extend(list("QWERTYUIOPLKJHGFDSAZXCVBNM"))
     if request.GET.get('digits'):
         char.extend(list('0987654321'))
     if request.GET.get('symbols'):
         char.extend(list("!@#$%^&*()_+?><"))
-    length = int(request.GET.get("length",8))
+    length = int(request.GET.get('length',8))
 
-    nums = list('123456789')
     password = ""
-    for x in range():
+    for x in range(length):
         password += random.choice(char)
-        password += random.choice(nums)
     return render(request, 'password.html', {'password': password})
